@@ -3,7 +3,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg border-y-2 border-blue-600">
-                <form action="" method="POST" class="p-6 lg:p-8 bg-white border-b border-gray-200">
+                <form action="{{ route('createCourse')}}" method="POST" class="p-6 lg:p-8 bg-white border-b border-gray-200">
                     @csrf
                     <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
@@ -56,10 +56,10 @@
                         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 
                             <div class="sm:col-span-3">
-                                <label for="course-level" class="block text-lg font-medium leading-6 text-gray-900">Course Level</label>
+                                <label for="course_level" class="block text-lg font-medium leading-6 text-gray-900">Course Level</label>
                                 <div class="mt-2">
-                                    <select id="course-level" name="course-level" autocomplete="course-level" :value="old('course-level')" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6" required>
-                                        <option value="phd">PhD</option>
+                                    <select id="course_level" name="course_level" autocomplete="course_level" :value="old('course_level')" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6" required>
+                                        <option value="phd" selected>PhD</option>
                                         <option value="masters">Masters</option>
                                         <option value="degree">Degree</option>
                                         <option value="diploma">Diploma</option>
@@ -69,9 +69,9 @@
                             </div>
 
                             <div class="col-span-full">
-                                <label for="description" class="block text-lg font-medium leading-6 text-gray-900">Course Overview</label>
+                                <label for="detail" class="block text-lg font-medium leading-6 text-gray-900">Course Overview</label>
                                 <div class="mt-2">
-                                    <textarea id="description" name="description" rows="15" :value="old('description')" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" required></textarea>
+                                    <textarea id="detail" name="detail" rows="15" :value="old('detail')" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" required></textarea>
                                 </div>
                                 <p class="mt-3 text-sm leading-6 text-gray-600">Outline the modules and other details of the course.</p>
                             </div>

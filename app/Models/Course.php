@@ -17,7 +17,10 @@ class Course extends Model
      */
     protected $fillable = [
         'course_name',
+        'department',
         'description',
+        'fee',
+        'course_level',
         'detail',
     ];
 }
