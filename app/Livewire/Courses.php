@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Course;
+use App\Models\Enrollment;
 use Livewire\Component;
 use Illuminate\Http\Request;
 
@@ -46,4 +47,12 @@ class Courses extends Component
         return redirect('/courses');
     }
 
+    public function enrollCourse(Request $request, $course_id) {
+
+        $request->user()->enrollments()->create([
+            'course_id' => $course_id,
+        ]);
+
+        return redirect('/courses');
+    }
 }

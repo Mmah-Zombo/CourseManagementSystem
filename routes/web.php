@@ -1,12 +1,14 @@
 <?php
 
+use App\Models\Course;
 use App\Livewire\Courses;
+use App\Livewire\Students;
+use App\Livewire\Teachers;
+use App\Livewire\MyCourses;
 use App\Livewire\CourseForm;
 use App\Livewire\CourseInfo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureIsAdmin;
-use App\Livewire\Students;
-use App\Livewire\Teachers;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,7 @@ use App\Livewire\Teachers;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::middleware([
@@ -29,12 +31,14 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard', ['courses', Course::count()]);
     })->name('dashboard');
     Route::get('/students', [Students::class, 'render'])->name('students');
     Route::get('/teachers', [Teachers::class, 'render'])->name('teachers');
     Route::get('/courses', [Courses::class, 'render'])->name('courses');
+    Route::get('/my-courses', [MyCourses::class, 'render'])->name('myCourses');
     Route::get('/course/{id}', [CourseInfo::class, 'render']);
+    Route::get('/course-enroll/{id}', [Courses::class, 'enrollCourse']);
     Route::get('/course-form' , [CourseForm::class, 'render'])->name('course-form')->middleware(EnsureIsAdmin::class);
     Route::post('/create-course' , [Courses::class, 'createCourse'])->name('createCourse')->middleware(EnsureIsAdmin::class);
     Route::get('/delete-course/{id}' , [Courses::class, 'deleteCourse'])->name('deleteCourse')->middleware(EnsureIsAdmin::class);

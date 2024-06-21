@@ -5,11 +5,11 @@
           <div class="mb-4">
             <p class="text-2xl font-bold">Courses</p>
           </div>
-          <div class="grid grid-cols-4 grid-flow-col gap-4">
+          <div class="grid grid-cols-4 gap-4">
             @if(isset($allCourses) && count($allCourses) > 0)
               @foreach ($allCourses as $course)
                 
-                <div class="max-w-xs flex flex-col bg-white border border-t-4 border-t-blue-600 shadow-sm hover:shadow-xl rounded-xl transition-all duration-500">
+                <div class="col-span-1 max-w-xs flex flex-col bg-white border border-t-4 border-t-blue-600 shadow-sm hover:shadow-xl rounded-xl transition-all duration-500">
                   <div class="p-4 md:p-5">
                     <h3 class="text-lg font-bold text-gray-800">
                       {{ $course->course_name }}

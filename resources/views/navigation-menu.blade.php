@@ -20,9 +20,13 @@
                         {{ __('Courses') }}
                     </x-nav-link>
 
+                    <x-nav-link href="{{ route('myCourses') }}" :active="request()->routeIs('myCourses')">
+                        {{ __('My Courses') }}
+                    </x-nav-link>
+
                     @if (Auth::User()->admin)
                         <x-nav-link href="{{ route('course-form') }}" :active="request()->routeIs('course-form')">
-                            {{ __('Add Courses') }}
+                            {{ __('Add Course') }}
                         </x-nav-link>
 
                         <x-nav-link href="{{ route('students') }}" :active="request()->routeIs('students')">
