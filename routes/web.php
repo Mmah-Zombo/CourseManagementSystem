@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Livewire\CourseForm;
+use App\Livewire\Courses;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,21 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', [AuthController::class, 'login']);
-Route::post('/login', [AuthController::class, 'AuthLogin'])->name('login');
-
-Route::get('/login', function () {
-    return view('login');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('dashboard');
-
-Route::get('/admin/admin/list', function () {
-    return view('admin.admin.list');
-})->name('adminList');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/courses', [Courses::class, 'render'])->name('courses');
+    Route::get('/course-form' , [CourseForm::class, 'render'])->name('course-form');
+});
