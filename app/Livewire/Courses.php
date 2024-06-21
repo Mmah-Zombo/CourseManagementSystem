@@ -39,4 +39,11 @@ class Courses extends Component
         return redirect('/courses');
     }
 
+    public function deleteCourse(Request $request, $course_id) {
+        Course::find($course_id)->delete();
+        $this->allCourses = Course::orderBy('created_at', 'desc')->get();
+
+        return redirect('/courses');
+    }
+
 }

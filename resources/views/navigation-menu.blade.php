@@ -24,6 +24,10 @@
                         <x-nav-link href="{{ route('course-form') }}" :active="request()->routeIs('course-form')">
                             {{ __('Add Courses') }}
                         </x-nav-link>
+
+                        <x-nav-link href="{{ route('students') }}" :active="request()->routeIs('students')">
+                            {{ __('Students') }}
+                        </x-nav-link>
                     @endif
 
                     {{-- <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">

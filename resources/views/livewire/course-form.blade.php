@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg border-y-2 border-blue-600">
@@ -32,7 +31,7 @@
                             <div class="col-span-full">
                                 <label for="description" class="block text-lg font-medium leading-6 text-gray-900">Description</label>
                                 <div class="mt-2">
-                                <textarea id="description" name="description" rows="3" :value="old('description')" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" required></textarea>
+                                <textarea id="description" name="description" rows="3" :value="old('description')" maxlength="255" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" required></textarea>
                                 </div>
                                 <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about the course.</p>
                             </div>
@@ -71,10 +70,19 @@
                             <div class="col-span-full">
                                 <label for="detail" class="block text-lg font-medium leading-6 text-gray-900">Course Overview</label>
                                 <div class="mt-2">
-                                    <textarea id="detail" name="detail" rows="15" :value="old('detail')" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" required></textarea>
+                                    <textarea id="detail" name="detail" rows="15" :value="old('detail')" maxlength="5000" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" required></textarea>
                                 </div>
                                 <p class="mt-3 text-sm leading-6 text-gray-600">Outline the modules and other details of the course.</p>
                             </div>
+
+                            <!-- Create the editor container -->
+                            {{-- <div class="col-span-full">
+                                <div id="editor" class="border border-gray-200 overflow-hidden dark:border-neutral-700">
+                                    <p>Hello World!</p>
+                                    <p>Some initial <strong>bold</strong> text</p>
+                                    <p><br /></p>
+                                </div>
+                            </div> --}}
 
                         </div>
                     </div>
