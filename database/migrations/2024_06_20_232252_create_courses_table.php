@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('course_name');
             $table->string('department');
-            $table->string('description');
+            $table->string('description', 255);
             $table->integer('fee');
             $table->string('course_level');
-            $table->string('detail');
+            $table->string('detail', 5000);
             $table->timestamps();
         });
     }

@@ -82,7 +82,7 @@
                 
                     <div class="mt-6 flex items-center justify-end gap-x-6">
                         <a href="/courses" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
-                        <button type="submit" class="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Save</button>
+                        <button type="submit" class="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Create Course</button>
                     </div>
                 </form>
             </div>

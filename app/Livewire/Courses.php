@@ -8,22 +8,25 @@ use Illuminate\Http\Request;
 
 class Courses extends Component
 {
+    public $allCourses;
+
     public function render()
     {
-        return view('livewire.courses');
+        $this->allCourses = Course::orderBy('created_at', 'desc')->get();
+        return view('livewire.courses', [ 'allCourses' => $this->allCourses]);
     }
 
     public function createCourse(Request $request) {
         $request->validate([
             'course_name' => 'required|string',
             'department' => 'required|string',
-            'description' => 'required|string',
+            'description' => 'required|string|max:255',
             'fee' => 'required|integer',
             'course_level' => 'required|string',
-            'detail' => 'required|string',
+            'detail' => 'required|string|max:5000',
         ]);
 
-        // dd($request->course_level);
+        // dd($request);
         Course::create([
             'course_name' => $request->course_name,
             'department' => $request->department,
@@ -35,4 +38,5 @@ class Courses extends Component
 
         return redirect('/courses');
     }
+
 }

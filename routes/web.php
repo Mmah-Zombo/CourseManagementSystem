@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Middleware\EnsureIsAdmin;
-use App\Livewire\CourseForm;
 use App\Livewire\Courses;
+use App\Livewire\CourseForm;
+use App\Livewire\CourseInfo;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\EnsureIsAdmin;
 
 
 /*
@@ -30,6 +31,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/courses', [Courses::class, 'render'])->name('courses');
+    Route::get('/course/{id}', [CourseInfo::class, 'render']);
     Route::get('/course-form' , [CourseForm::class, 'render'])->name('course-form')->middleware(EnsureIsAdmin::class);
     Route::post('/create-course' , [Courses::class, 'createCourse'])->name('createCourse')->middleware(EnsureIsAdmin::class);
 });
