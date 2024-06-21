@@ -6,6 +6,7 @@ use App\Livewire\CourseInfo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureIsAdmin;
 use App\Livewire\Students;
+use App\Livewire\Teachers;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/students', [Students::class, 'render'])->name('students');
+    Route::get('/teachers', [Teachers::class, 'render'])->name('teachers');
     Route::get('/courses', [Courses::class, 'render'])->name('courses');
     Route::get('/course/{id}', [CourseInfo::class, 'render']);
     Route::get('/course-form' , [CourseForm::class, 'render'])->name('course-form')->middleware(EnsureIsAdmin::class);
