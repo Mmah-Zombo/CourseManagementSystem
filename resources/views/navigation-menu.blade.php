@@ -20,10 +20,6 @@
                         {{ __('Courses') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('myCourses') }}" :active="request()->routeIs('myCourses')">
-                        {{ __('My Courses') }}
-                    </x-nav-link>
-
                     @if (Auth::User()->admin)
                         <x-nav-link href="{{ route('course-form') }}" :active="request()->routeIs('course-form')">
                             {{ __('Add Course') }}
@@ -36,6 +32,10 @@
                         <x-nav-link href="{{ route('teachers') }}" :active="request()->routeIs('teachers')">
                             {{ __('Admins') }}
                         </x-nav-link>
+                    @else
+                    <x-nav-link href="{{ route('myCourses') }}" :active="request()->routeIs('myCourses')">
+                        {{ __('My Courses') }}
+                    </x-nav-link>
                     @endif
 
                     {{-- <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">

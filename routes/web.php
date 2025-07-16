@@ -9,6 +9,7 @@ use App\Livewire\CourseForm;
 use App\Livewire\CourseInfo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureIsAdmin;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard', ['courses', Course::count()]);
+        return view('dashboard');
     })->name('dashboard');
     Route::get('/students', [Students::class, 'render'])->name('students');
     Route::get('/teachers', [Teachers::class, 'render'])->name('teachers');

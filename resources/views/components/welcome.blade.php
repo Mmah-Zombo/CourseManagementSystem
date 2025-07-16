@@ -12,10 +12,11 @@
 
 <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
     @if (Auth::User()->admin)
-
+        @livewire('card', ['content' => 'All Students'])
+        @livewire('card', ['content' => 'All Courses', 'num' => 'hi'])
     @else
     <a href="/my-courses" class="hover:bg-blue-200 w-full h-full  p-6 lg:p-8">
-        <p class="font-bold text-lg">{{ Auth::user()->enrollments()->count()}}</p>
+        <p class="font-bold text-4xl">{{ Auth::user()->enrollments()->count()}}</p>
         <p>Your Courses</p>
     </a>
     @endif
